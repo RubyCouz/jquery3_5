@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta name="viewport" content="width=device-6width, initial-scale=1">
+  <title></title>
+</head>
+<body>
+  <form>
+    <input id="fieldText" />
+    <div id="squarre" ></div>
+  </form>
+  <script>
+  $(function() {
+    $('#fieldText').keydown(function(e){
+      var height = $(window).innerHeight(); //récupération de la hauteur du document
+      var width = $(window).innerWidth(); //récupération de la largeur du document
+      var marginLeft = $('#squarre').css('margin-left');
+      var marginTop = $('#squarre').css('margin-top');
+      if (e.which == 39)
+      {
+        $('#squarre').css({'margin-left' : '+=10px'}); //dépacement vers la droite
+      }
+      if (parseInt(marginLeft) < 0) {
+        $('#squarre').css({'margin-left' : (width - 50)}); //retour à droite
+      }
+      if (e.which == 37)
+      {
+        $('#squarre').css({'margin-left' : '-=10px'}); //déplacement vers la geuche
+      }
+      if (parseInt(marginLeft) > parseInt(width - 50)) {
+        $('#squarre').css({'margin-left' : '0px'}); //retour à gauche PB
+      }
+      if (e.which == 38)
+      {
+        $('#squarre').css({'margin-top' : '-=10px'}); //déplacement vers le haut
+      }
+      if (parseInt(marginTop) < 0) {
+        $('#squarre').css({'margin-top' : (height - 50)}); //retour en bas
+      }
+      if (e.which == 40)
+      {
+        $('#squarre').css({'margin-top' : '+=10px'}); //déplacement vers le bas
+      }
+      if (parseInt(marginTop) > parseInt(height - 50)) {
+        $('#squarre').css({'margin-top' : '0px'}); //retour en haut PB
+      }
+    });
+  });
+  </script>
+</body>
+</html>
