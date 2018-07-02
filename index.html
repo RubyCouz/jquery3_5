@@ -31,7 +31,7 @@
         $('#squarre').css({'margin-left' : '-=10px'}); //déplacement vers la geuche
       }
       if (parseInt(marginLeft) > parseInt(width - 50)) {
-        $('#squarre').css({'margin-left' : '0px'}); //retour à gauche PB
+        $('#squarre').css({'margin-left' : '0px'}); //retour à gauche
       }
       if (e.which == 38)
       {
@@ -45,10 +45,38 @@
         $('#squarre').css({'margin-top' : '+=10px'}); //déplacement vers le bas
       }
       if (parseInt(marginTop) > parseInt(height - 50)) {
-        $('#squarre').css({'margin-top' : '0px'}); //retour en haut PB
+        $('#squarre').css({'margin-top' : '0px'}); //retour en haut
       }
     });
   });
-  </script>
+
+
+  /* autre façon:
+  $('#fieldText').keydown(function(e) {
+  var height = $(window).innerHeight();
+  var width = $(window).innerWidth(); 
+  var marginLeft = parseInt($('#squarre').css('margin-left'));
+  var marginTop = parseInt($('#squarre').css('marginTop')),
+  switch (e.which) {
+    case 37:
+    marginLeft -= 10;
+    $('#squarre').css({'margin-left' : marginTop});
+      break;
+      case 38:
+      marginTop -= 10;
+      $('#squarre').css({'margin-top' : marginTop});
+      break;
+      case 39:
+      $('#squarre').css({'margin-left' : marginLeft});
+      marginLeft += 10;
+      break;
+      case 40: +=10;
+      $('#squarre').css({'margin-top' : marginTop});
+      break;
+    default:
+
+  }
+})
+</script>
 </body>
 </html>
